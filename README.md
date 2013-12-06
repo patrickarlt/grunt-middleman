@@ -92,7 +92,7 @@ Default value: `false`
 
 Remove orphaned files from build. **Build only**
 
-#### options.clean
+#### options.env
 Type: `Object`
 Default value: `{}`
 
