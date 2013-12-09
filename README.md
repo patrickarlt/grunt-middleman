@@ -64,15 +64,11 @@ Default value: `'0.0.0.0'`
 
 Which host middleman will run on. Localhost by default. **Server only**
 
-#### options.post
+#### options.port
 Type: `Integer`
 Default value: `4567`
 
 The port the Middleman server will run on. **Server only**
-
-#### options.glob
-Type: `String`
-Default value: `false`
 
 #### options.glob
 Type: `String`
