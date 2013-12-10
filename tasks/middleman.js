@@ -92,14 +92,21 @@ module.exports = function(grunt) {
       }
     }
 
+    var spawnOpts = {
+      stdio: "inherit",
+      env: process.env
+    };
+
+    // allow user to change current working directory
+    if (options.cwd) {
+      spawnOpts.cwd = options.cwd;
+    }
+
     // spawn the middleman command
     grunt.util.spawn({
       cmd: cmd,
       args: args,
-      opts: {
-        stdio: "inherit",
-        env: process.env
-      }
+      opts: spawnOpts
     }, function (error, result, code) {
       if(error){
         grunt.log.error("Error running middleman " + options.command + " " + error);
