@@ -93,7 +93,7 @@ module.exports = function(grunt) {
     }
 
     // spawn the middleman command
-    grunt.util.spawn({
+    var child = grunt.util.spawn({
       cmd: cmd,
       args: args,
       opts: {
@@ -108,6 +108,11 @@ module.exports = function(grunt) {
       }
       done();
     });
+
+    process.on("SIGINT", function(e){
+      child.kill("SIGINT");
+    });
+
   });
 
 };
