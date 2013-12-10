@@ -94,7 +94,6 @@ Default value: `{}`
 
 Additional environment variables to set. This is useful for passing options into your `config.rb` file
 
-
 ### Usage Examples
 
 #### Default Options
