@@ -94,6 +94,11 @@ Default value: `{}`
 
 Additional environment variables to set. This is useful for passing options into your `config.rb` file
 
+#### options.cwd
+Type: `String`
+Default value: none
+
+Set this to change the directory where the Middleman `config.rb` and `source` are located. Defaults to same directory Gruntfile is in.
 
 ### Usage Examples
 
