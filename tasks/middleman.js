@@ -113,7 +113,7 @@ module.exports = function(grunt) {
       } else {
         grunt.log.ok("Finished running middleman " + options.command);
       }
-      done();
+      done(error);
     });
 
     process.on("SIGINT", function(e){
