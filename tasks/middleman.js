@@ -39,7 +39,6 @@ module.exports = function(grunt) {
       command: "server",
       useBundle: false,
       environment: "development",
-      host: "0.0.0.0",
       port: 4567,
       glob: false,
       verbose: false,
@@ -85,7 +84,6 @@ module.exports = function(grunt) {
     // add the server options
     if(options.server){
       args.push("--environment=" + options.environment);
-      args.push("--host=" + options.host);
       args.push("--port=" + options.port);
     }
 
