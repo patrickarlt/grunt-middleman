@@ -73,9 +73,13 @@ module.exports = function(grunt) {
       args.push("--glob=" + options.glob);
     }
 
-    // add the clean option (server only)
-    if(!options.server && options.clean){
-      args.push("--clean");
+    // add the clean option (build only)
+    if(!options.server){
+      if (options.clean){
+        args.push("--clean");
+      } else {
+        args.push("--no-clean");
+      }
     }
 
     // add the server options
