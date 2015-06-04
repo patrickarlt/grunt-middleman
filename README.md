@@ -58,12 +58,6 @@ Default value: `'development'`
 
 Set the Ruby environment that your command will run in. Generally you should let Middleman handle this.
 
-#### options.host
-Type: `String`
-Default value: `'0.0.0.0'`
-
-Which host middleman will run on. Localhost by default. **Server only**
-
 #### options.port
 Type: `Integer`
 Default value: `4567`
