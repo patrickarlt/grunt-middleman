@@ -39,7 +39,6 @@ module.exports = function(grunt) {
       command: "server",
       useBundle: false,
       environment: "development",
-      host: "0.0.0.0",
       port: 4567,
       glob: false,
       verbose: false,
@@ -73,15 +72,18 @@ module.exports = function(grunt) {
       args.push("--glob=" + options.glob);
     }
 
-    // add the clean option (server only)
-    if(!options.server && options.clean){
-      args.push("--clean");
+    // add the clean option (build only)
+    if(!options.server){
+      if (options.clean){
+        args.push("--clean");
+      } else {
+        args.push("--no-clean");
+      }
     }
 
     // add the server options
     if(options.server){
       args.push("--environment=" + options.environment);
-      args.push("--host=" + options.host);
       args.push("--port=" + options.port);
     }
 
@@ -92,21 +94,28 @@ module.exports = function(grunt) {
       }
     }
 
+    var spawnOpts = {
+      stdio: "inherit",
+      env: process.env
+    };
+
+    // allow user to change current working directory
+    if (options.cwd) {
+      spawnOpts.cwd = options.cwd;
+    }
+
     // spawn the middleman command
     var child = grunt.util.spawn({
       cmd: cmd,
       args: args,
-      opts: {
-        stdio: "inherit",
-        env: process.env
-      }
+      opts: spawnOpts
     }, function (error, result, code) {
       if(error){
         grunt.log.error("Error running middleman " + options.command + " " + error);
       } else {
         grunt.log.ok("Finished running middleman " + options.command);
       }
-      done();
+      done(error);
     });
 
     process.on("SIGINT", function(e){

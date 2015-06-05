@@ -58,12 +58,6 @@ Default value: `'development'`
 
 Set the Ruby environment that your command will run in. Generally you should let Middleman handle this.
 
-#### options.host
-Type: `String`
-Default value: `'0.0.0.0'`
-
-Which host middleman will run on. Localhost by default. **Server only**
-
 #### options.port
 Type: `Integer`
 Default value: `4567`
@@ -94,6 +88,12 @@ Default value: `{}`
 
 Additional environment variables to set. This is useful for passing options into your `config.rb` file
 
+#### options.cwd
+Type: `String`
+Default value: none
+
+Set this to change the directory where the Middleman `config.rb` and `source` are located. Defaults to same directory Gruntfile is in.
+
 ### Usage Examples
 
 #### Default Options
@@ -106,7 +106,6 @@ grunt.initConfig({
       command: "server",
       useBundle: false,
       environment: "development",
-      host: "0.0.0.0",
       port: 4567,
       glob: false,
       verbose: false,
